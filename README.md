@@ -1,5 +1,5 @@
 # Frame of References Animation Project
-This animation intends to explaining the key concepts of frames
+This project intends to explain the key concepts of frames
 of references.
   
 The target audience is grade 8 highschoolers.
