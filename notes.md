@@ -34,7 +34,6 @@ class ReferenceFrameDef(GraphingScene):
         # write "the object is (distance) away from the origin in the x 
         # direaction and (distance) away from the origin in the y  
         # direction" 
-        # transform that text into coordinates
 ```
 
 
@@ -46,6 +45,5 @@ class ReferenceFrameNoAcceleration(GraphingScene):
     def construct(self):
         # draw a graph that is sitting on a graph
         # somehow, that is not moving
-```
 
 - this probably needs more rigorous definitions
