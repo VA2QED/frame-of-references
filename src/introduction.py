@@ -42,58 +42,55 @@ class ReferenceFrameDefWords(Scene):
 
 class ReferenceFrameExample(Scene):
     def construct(self):
+        # Setting up number plane
         number_plane = NumberPlane(axis_config={"stroke_width": 4})
         origin = Dot(point=number_plane.coords_to_point(0, 0, 0))
         origin_word = Tex("Origin").next_to(origin, direction=DOWN + LEFT)
-        moving_object = Dot(stroke_width=10, color=GREEN).move_to(number_plane.coords_to_point(1, 1, 1))
-        coord_x = Tex("$x:$", color=YELLOW).move_to(3 * UP + 4 * RIGHT)
-        coord_y = Tex("$y:$", color=YELLOW).next_to(coord_x, direction=DOWN)
-        moving_object_coordinate_x = DecimalNumber(1,
-                                                   show_ellipsis=False,
-                                                   num_decimal_places=3,
-                                                   include_sign=True,
-                                                   color=YELLOW
-                                                   ).next_to(coord_x)
-        moving_object_coordinate_y = DecimalNumber(1,
-                                                   show_ellipsis=False,
-                                                   num_decimal_places=3,
-                                                   include_sign=True,
-                                                   color=YELLOW
-                                                   ).next_to(coord_y)
-        moving_object_coordinate_x.add_updater(lambda d: d.set_value(moving_object.get_x()))
-        moving_object_coordinate_y.add_updater(lambda d: d.set_value(moving_object.get_y()))
 
-        self.play(ShowCreation(number_plane), run_time=4)
+        # Setting up moving object
+        moving_object = Dot(stroke_width=10, color=GREEN).move_to(number_plane.coords_to_point(1, 1, 0))
+        moving_object_paths = [Line(number_plane.coords_to_point(1, 1, 0), number_plane.coords_to_point(2, 3, 0)),
+                               Line(number_plane.coords_to_point(2, 3, 0), number_plane.coords_to_point(-4, -3, 0)),
+                               Line(number_plane.coords_to_point(-4, -3, 0), number_plane.coords_to_point(.420, .69, 0))
+                               ]
+
+        # Setting up moving object walking distance
+        # Change note: instead of using two separate lines for horizontal and vertical braces, use one singular line to
+        # cover the entire distance diagonally.
+        line_to_moving_object = Line(number_plane.center_point, moving_object.get_center())
+
+        # A horizontally (facing down) oriented brace will cover the bottom of the diagonal line.
+        brace_to_moving_object_bottom = Brace(line_to_moving_object, direction=DOWN)
+        # A vertically (facing right) oriented brace will cover the right of the diagonal line.
+        brace_to_moving_object_right = Brace(line_to_moving_object, direction=RIGHT)
+
+        # During animation, the point will move constantly, thus the two braces are added updaters, which will change
+        # their position and size automatically when the point moves.
+        # Note that this has to be accomplished by updating the braces directly instead of updating the line and then
+        # using the line to update the brace, as the value of the line variable in this scope does not actually change
+        # during animation, likely to prevent other bugs.
+        brace_to_moving_object_bottom.add_updater(lambda brace: brace.become(
+            Brace(Line(number_plane.center_point, moving_object.get_center()), direction=DOWN)))
+        brace_to_moving_object_right.add_updater(lambda brace: brace.become(
+            Brace(Line(number_plane.center_point, moving_object.get_center()), direction=RIGHT)))
+
+        # Playing number plane
+        self.play(ShowCreation(number_plane))
         self.wait()
         self.play(ShowCreation(origin), Write(origin_word))
-        self.play(
-            Write(coord_x),
-            Write(coord_y),
-            Write(moving_object_coordinate_x),
-            Write(moving_object_coordinate_y),
-            ShowCreation(moving_object)
-        )
-
-        moving_object_path_1 = Line(number_plane.coords_to_point(1, 1, 0), number_plane.coords_to_point(2, 3, 0))
-        moving_object_path_2 = Line(number_plane.coords_to_point(2, 3, 0), number_plane.coords_to_point(-4, -3, 0))
-        moving_object_path_3 = Line(number_plane.coords_to_point(-4, -3, 0),
-                                    number_plane.coords_to_point(0.420, 0.69, 0))
-
-        self.play(
-            # Moving the object along the path of the line moving_object_path_1, pycharm throws an error here
-            # nothing to worry about, manim doesn't care.
-            MoveAlongPath(moving_object, moving_object_path_1, rate_func=rate_functions.smooth)
-        )
         self.wait()
-        self.play(
-            MoveAlongPath(moving_object, moving_object_path_2, rate_func=rate_functions.smooth)
-        )
-        self.wait()
-        self.play(
-            MoveAlongPath(moving_object, moving_object_path_3, rate_func=rate_functions.smooth)
 
-        )
+        # Playing moving object
+        self.play(ShowCreation(moving_object))
+
+        # Playing braces to moving object
+        self.play(ShowCreation(brace_to_moving_object_bottom))
+        self.play(ShowCreation(brace_to_moving_object_right))
         self.wait()
+
+        for moving_object_path in moving_object_paths:
+            self.play(MoveAlongPath(moving_object, moving_object_path, rate_func=rate_functions.smooth))
+            self.wait()
 
 
 class InertialReferenceFrameDisclaimer(Scene):
