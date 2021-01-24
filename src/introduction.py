@@ -83,9 +83,8 @@ class ReferenceFrameExample(Scene):
         # Playing moving object
         self.play(ShowCreation(moving_object))
 
-        # Playing braces to moving object
-        self.play(ShowCreation(brace_to_moving_object_bottom))
-        self.play(ShowCreation(brace_to_moving_object_right))
+        # Playing braces to moving object. Add the braces together instead of individually.
+        self.play(ShowCreation(brace_to_moving_object_bottom), ShowCreation(brace_to_moving_object_right))
         self.wait()
 
         for moving_object_path in moving_object_paths:
