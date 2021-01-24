@@ -34,3 +34,12 @@ For the purposes of this video, we are only going to explain what is known as in
 class InertialReferenceFrameDisclaimer(Scene)
 ```
 
+
+
+
+
+## Perception of position or orientation
+
+First, let us discuss how a change of reference frames can affect the orientation and position of the object. As an example, let's say that there are two observers, Jerry and Ashmita with two different reference frames. Jerry's positive x direction and positive y direction are right and up relative to the screen and Ashmita's positive x direction and positive y direction are down and left relative to the screen. When asked to describe the position and orientation of the object, Jerry will say that the triangle is right side up and positioned to the right and up relative to his origin and Ashmita will say that the triangle is upside down and is positioned to the left and up of his reference frame.
+
+![position and orientation](./assets/notes/orientation-and-position.png)
