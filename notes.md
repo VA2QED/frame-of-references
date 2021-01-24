@@ -12,7 +12,7 @@ class SelfIntroduction(Scene)
 
 
 
-First of all, a reference frame is composed of an origin and methods of describing the position and orientation of an object relative to the origin. A frame of reference seeks to systematically answer the question of where something is in space. Also please note that we are assuming that the observer is at the origin for ease. An observer can also be a certain distance away from the origin.
+First of all, a reference frame is composed of an origin and methods of describing the position and orientation of an object relative to the origin. A frame of reference seeks to systematically answer the question of where something is in time and space. Also please note that for this video, the observer is placed at the origin for ease. An observer can also be a certain distance away from the origin.
 
 ```python
 class ReferenceFrameDefWords(Scene)
