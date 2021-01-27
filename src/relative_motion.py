@@ -24,9 +24,6 @@ class DemonstrationOfRelativeMotion(Scene):
         number_line = NumberLine(color=WHITE, include_numbers=True, include_tip=True)
         label = Tex("$x$")
         label.move_to(np.array([6.5, -0.75, 0]))
-        self.play(ShowCreation(number_line))
-        self.add(label)
-        self.wait()
 
         # setting up stationary observer
         stationary_observer = ImageMobject("./assets/manim/eye.png")
@@ -57,14 +54,22 @@ class DemonstrationOfRelativeMotion(Scene):
         ball.add_updater(lambda d: d.move_to(np.array([car.get_x(), 0.85, 0])))
         moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x()-0.75, 0.85, 0])))
 
+        # Adding number line
+        self.play(ShowCreation(number_line))
+        self.add(label)
+        self.wait()
+        # Adding stationary object
         self.add(stationary_observer)
         self.wait()
+        # adding car and position label
         self.play(ShowCreation(car))
+        self.play(ShowCreation(ball))
         self.play(ShowCreation(position_label), ShowCreation(position_number))
         self.wait()
+        # adding moving observer
         self.add(moving_observer)
-        self.play(ShowCreation(ball))
         self.wait()
+        # playing animation
         self.play(MoveAlongPath(car, moving_car_path), rate_func=linear, run_time=4)
         self.wait()
 
@@ -78,9 +83,6 @@ class StationaryPerspective(Scene):
         number_line = NumberLine(color=WHITE, include_numbers=True, include_tip=True)
         label = Tex("$x$")
         label.move_to(np.array([6.5, -0.75, 0]))
-        self.play(ShowCreation(number_line))
-        self.add(label)
-        self.wait()
 
         # setting up observer
         stationary_observer = ImageMobject("./assets/manim/eye.png")
@@ -100,13 +102,22 @@ class StationaryPerspective(Scene):
         ball_position.add_updater(lambda d: d.set_value(ball.get_x()))
         ball_position.add_updater(lambda d: d.next_to(brace_to_ball, direction=DOWN))
 
+        # adding number line
+        self.play(ShowCreation(number_line))
+        self.add(label)
+        self.wait()
+        # adding ball, brace and the number for the ball's position
         self.play(ShowCreation(ball), ShowCreation(brace_to_ball), ShowCreation(ball_position))
         self.add(stationary_observer)
         self.wait()
+        # playing animation
         self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
         self.wait()
 
 
+# This one will play with the camera focusing on the car, it is meant to give a general idea
+# on the motion of the ball that is relative to blue, the next scene will remove the number line
+# to show that blue really has no idea that the ball is moving relative to something else
 class MovingPerspective(MovingCameraScene):
     def setup(self):
         MovingCameraScene.setup(self)
@@ -119,9 +130,6 @@ class MovingPerspective(MovingCameraScene):
         number_line = NumberLine(color=WHITE, include_numbers=True, include_tip=True)
         label = Tex("$x$")
         label.move_to(np.array([6.5, -0.75, 0]))
-        self.play(ShowCreation(number_line))
-        self.add(label)
-        self.wait()
 
         # setting up camera
         self.camera_frame.save_state()
@@ -137,16 +145,21 @@ class MovingPerspective(MovingCameraScene):
         moving_observer.scale(0.2)
         moving_observer.add_updater(lambda d: d.next_to(ball, direction=1.5*LEFT))
 
+        # adding numberline
+        self.play(ShowCreation(number_line))
+        self.add(label)
+        self.wait()
         # TODO: make camera zoom ins less janky.
         self.play(self.camera_frame.animate.scale(0.5).move_to(ball))
+        # adding ball
         self.play(ShowCreation(ball))
         self.add(moving_observer)
         self.wait()
-
+        # moving camera
         self.camera_frame.add_updater(lambda d: d.move_to(ball.get_center()))
-
+        # moving object
         self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
-        self.play(Restore(self.camera_frame))
+        self.play(Restore(self.camera_frame))  # considering not zooming out
 
 
 class MovingPerspectiveHideNumberLine(MovingCameraScene):
@@ -161,9 +174,6 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
         number_line = NumberLine(color=WHITE, include_numbers=True, include_tip=True)
         label = Tex("$x$")
         label.move_to(np.array([6.5, -0.75, 0]))
-        self.play(ShowCreation(number_line))
-        self.add(label)
-        self.wait()
 
         # setting up camera
         self.camera_frame.save_state()
@@ -177,14 +187,30 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
         moving_observer.move_to(np.array([-4 - 0.75, 0.5, 0])).set_color(BLUE)
         moving_observer.scale(0.2)
 
+        # adding number line
+        self.play(ShowCreation(number_line))
+        self.add(label)
+        self.wait()
+        # zooming in
         self.play(self.camera_frame.animate.scale(0.5).move_to(ball))
+        # adding ball and observer
         self.play(ShowCreation(ball))
         self.add(moving_observer)
         self.wait()
+        # moving camera
         self.camera_frame.add_updater(lambda d: d.move_to(ball.get_center()))
-
         # If you are reading this code, think about why I didn't need to animate the ball moving
+        # removing number line
         self.remove(number_line)
-        self.wait(6)
-        self.play(Restore(self.camera_frame))
+        self.wait(6)  # this is the amount of time that the movement would usually take + 2 seconds for awkwardness
+        self.play(Restore(self.camera_frame))  # considering not zooming out
         self.wait()
+
+
+# this scene visualises the different reference frame of the moving observer
+class OwnReferenceFrame(Scene):
+    def construct(self):
+        """
+        there will be a main number line present and then another number line indicating the reference frame of the
+        observer shows up ontop of the observer.
+        """
