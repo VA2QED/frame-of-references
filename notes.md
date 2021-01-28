@@ -2,33 +2,40 @@
 
 ###### This file serves to allow for visualisation before coding the animations, please place your pictures in ./assets/notes/
 
-## Introduction
+## Outline
 
-Hello everyone, in this video we would like to explain the concept of a reference frame, in the context of physics and motion.
+*In this project, instead of defining the concepts right from the beginning and demonstrating them, I believe that it is more fit to introduce a few different problems. The problems will be disagreements between different observers on the different properties of an object, each representing a part of the reference frame that needs to be implemented, then at the very end the solutions of these problems will be assembled together into the definition of the reference frame.*
+
+* Situation 1: 
+  * Settings: Stationary observers and an oriented object.
+  * Problem: How do the observers come to an agreement with each other about the orientation and position of the object.
+  * Solution: introduce an universal origin and a direction system [a compass] that allows both observers to *convert* their own reference frames [centred at their origin] into a **shared** reference frame. 
+* Situation 2:
+  * [To be added]
+
+## ~~Introduction~~
+
+*As previously mentioned, I prefer to define reference frame at the **end** of the presentation instead of the beginning, so I'm scrapping the introduction at the moment - as we gradually introduce the concepts we will re-use this part to cover the left-overs and sum up in the end.*
+
+~~Hello everyone, in this video we would like to explain the concept of a reference frame, in the context of physics and motion.~~
 
 ```python
 class SelfIntroduction(Scene)
 ```
 
-
-
-First and foremost, a reference frame is "assigned" an origin. Consequently, various methods and equipment are utlised in order to describe the position and orientation of an object, relative to this origin. In essnse, a frame of reference seeks to systematically answer the question of *where* something is in time and space. Also please note that for this video, the observer is placed at the origin for ease. An observer can also be a certain distance away from the origin.
+~~First and foremost, a reference frame is "assigned" an origin. Consequently, various methods and equipment are utlised in order to describe the position and orientation of an object, relative to this origin. In essnse, a frame of reference seeks to systematically answer the question of *where* something is in time and space. Also please note that for this video, the observer is placed at the origin for ease. An observer can also be a certain distance away from the origin.~~
 
 ```python
 class ReferenceFrameDefWords(Scene)
 ```
 
-
-
-As an example, the positon of this moving green point can be described by saying it is a at a position of x from the origin's x axis and a position of y from the origin's y axis, of course assuming that the right direction indicates motion in the positive direction. This is known as a Cartesian coordinate system, which you may have encountered in math class.
+~~As an example, the positon of this moving green point can be described by saying it is a at a position of x from the origin's x axis and a position of y from the origin's y axis, of course assuming that the right direction indicates motion in the positive direction. This is known as a Cartesian coordinate system, which you may have encountered in math class.~~
 
 ```python
 class ReferenceFrameExample(Scene)
 ```
 
-
-
-For the purposes of this video, we are only going to discuss inertial reference frames. So, what is an *inetial* frame of reference? An Inertial reference frame is one that either does not move or moves at a constant speed, with zero acceleration, without changing direction.  An isolated object in this refernce frame would not experience any forces, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up, slowing down or making a turn (i.e : changing direction) is not considered an inertial reference frame.
+~~For the purposes of this video, we are only going to discuss inertial reference frames. So, what is an *inetial* frame of reference? An Inertial reference frame is one that either does not move or moves at a constant speed, with zero acceleration, without changing direction.  An isolated object in this refernce frame would not experience any forces, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up, slowing down or making a turn (i.e : changing direction) is not considered an inertial reference frame.~~
 
 ```python
 class InertialReferenceFrameDisclaimer(Scene)
@@ -36,11 +43,139 @@ class InertialReferenceFrameDisclaimer(Scene)
 
 
 
-
-
 ## Perception of position or orientation
 
-First, let us discuss how a change of reference frames can affect the orientation and position of the object. As an example, let's say that there are two observers, Jerry and Ashmita with two different reference frames. Jerry's positive x direction and positive y direction are right and up relative to the screen and Ashmita's positive x direction and positive y direction are down and left relative to the screen. When asked to describe the position and orientation of the object, Jerry will say that the triangle is right side up and positioned to the right and up relative to his origin and Ashmita will say that the triangle is upside down and is positioned to the left and up of his reference frame.
+### Orientation
+
+>  [Removed the mention to reference frames] Let us introduce the problem before creating the concepts. Instead of introducing the observers first, it is more optimal to introduce the subject of the discussion - the object. Introducing it first allows the audience to look at the object and come up with their own judgment before the observers' perspectives are presented.
+>
+> TODO: it is better to replace the object with something else, be it a car or an arrow that has an orientation associated with it instead of a triangle (directions can be confused if you use a simple shape). 
+
+**Let us say that we have an object, facing this way.**
+
+*Animation: create and rotate object.*
+
+> Introducing the observers. I strongly prefer to not use my name. 
+>
+> TODO: We also prefer to use simpler names instead of our real names as they are easier to process. Naming observers also face the challenge of labelling the observers and having to reinforce the names throughout the presentation as they can be forgotten. Possible candidates can be the classic *Alice and Bob* or colour-coded observers *Blue and Orange* for example.
+>
+> Instead of directly saying reference frames, we indirectly indicate their position and orientation.
+
+**And we have two observers, [Top Observer] and [Bottom Observer] facing each other on the opposite end of the screen.** 
+
+*Animation: create and show the observers.*
+
+*Animation: shake the observers (or use some construction on the shape of the observer) to demonstrate their directions.*
+
+> Using using Cartesian coordinate systems and sign conventions is a bit too unreasonable - and you are establishing another reference frame (sneakily) by introducing a separate coordinate system, and that's a no-go.
+
+> Instead of describing the situation in an "observer" tone, ask questions to try to have some engagement with the audience.
+
+**So, which way is the object facing?**
+
+> As mentioned earlier - using a shape makes describing the directions more difficult. 
+>
+> We are also separating orientation and position since asking them together can force too much information to be processed at once.
+>
+> We then present the perspectives on the directions.
+
+*Animation: darken bottom observer and potentially zoom in as we introduce the perspective of the top observer.*
+
+*Animation: show the "axis" of the top observer. Show all 4 directions and label them "front, back, left, right".*
+
+**[Top Observer] would say that the object is facing their left.**
+
+*Animation: extend (emphasise) and potentially brighten the "left" arrow and stretch the object to show the congruency in their orientation.*
+
+*Animation: hide the "axis" of the top observer.*
+
+*Animation: brighten the bottom observer as we exit the perspective of the top observer.*
+
+> Present the perspectives of bottom observer.
+
+*Animation: darken top observer and potentially zoom in as we introduce the perspective of the bottom observer.*
+
+*Animation: show the "axis" of the bottom observer. Show all 4 directions and label them "front, back, left, right".*
+
+**[Bottom Observer] would say that the object is facing their right.** 
+
+*Animation: extend (emphasise) and potentially brighten the "right" arrow and stretch the object to show the congruency in their orientation.*
+
+*Animation: hide the "axis" of the bottom observer.*
+
+*Animation: brighten the bottom observer as we exit the perspective of the bottom observer.*
+
+> Then present the conflict between the observers - they do not have an agreement on the orientation of the object.
+
+**So which way is the object facing? There can be only one, right?**
+
+*Animation: shake or stretch the object to emphasise its direction.*
+
+*Animation: show and shake question marks above the observers.*
+
+> Here, present a hint to the solution: there is no disagreement.
+
+**Now you may have realised the two observers are talking about the same direction, they just call it differently.**
+
+*Animation: show the "axis" of the observers again and stretch the arms to show that they are facing the same direction.*
+
+> Then introduce an universal direction system, the compass always points at the same direction.
+
+**Then how can the two observers [use their names here instead] come to an agreement? They decide to look for something that they can both have, and found a compass. **
+
+*Animation: hide the observers and the object to introduce the compass.*
+
+*Animation: Show a compass. [This may be a bit difficult to make, but a circle and two triangles with a smaller circle in the centre will do the trick.] Then shake it while keeping the arrows facing the same direction.*
+
+> Specify that the compass always points at the same direction to clear up any potential confusion and make sure that people realise that this system can be shared.
+
+**The compass always points to the same direction, no matter of where you put it and how you rotate it. **
+
+*Note: for this instance, the compass will have its red arrow always pointing **right** as that will be the direction of the object.*
+
+*Animation: hide the compass (make it fade away).*
+
+*Animation: show the observers and the object again.*
+
+**The two observers [use their names here instead] decided to each take a compass and take a look at the object again.**
+
+*Animation: give each observer a compass.*
+
+> Ask the same question again, though the question did not change, the observers have now been equipped the same tool to measure the direction, therefore the response would be different.
+
+**So which way, is the object facing?**
+
+*Animation: show the "axis" of both observers, but still label them with "left right" directions.*
+
+**This time, they decide to use their compass.**
+
+> Demonstrate that the use of the compass makes a difference in the observations.
+
+*Animation: change the "right" axis of both observers to be **red**, and replace the labels with "north, south, west, east".*
+
+**The object is facing north.**
+
+*Animation: extend and brighten the north axis of **both** observers and then stretch the object to show the congruency in their orientation.*
+
+> Explicitly state the conclusion of the experience for people who have not realised.
+
+**By choosing to use the compass as their common reference in their directions, the two observers come to an agreement with the direction of the object.**
+
+> In case *you* haven't realised, based on the raw information here, you should know why I am separating direction and position now.
+
+*Animation: hide the axis of both observers.*
+
+### Position
+
+> After the first problem is resolved, introduce the second one. 
+
+**Now that they [use the observers' names here] have come to an agreement with the direction, they begun thinking about a new question.**
+
+**Where is the object?**
+
+
+
+
 
 ![position and orientation](./assets/notes/orientation-and-position.png)
 
