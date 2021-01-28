@@ -28,7 +28,7 @@ class ReferenceFrameExample(Scene)
 
 
 
-For the purposes of this video, we are only going to discuss inertial reference frames. So, what is an *inetial* frame of reference? An Inertial reference frame is a frames of references which itself is not experiencing a force, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up or slowing down is not an inertial reference frame.
+For the purposes of this video, we are only going to discuss inertial reference frames. So, what is an *inetial* frame of reference? An Inertial reference frame is one that either does not move or moves at a constant speed, with zero acceleration, without changing direction.  An isolated object in this refernce frame would not experience any forces, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up, slowing down or making a turn (i.e : changing direction) is not considered an inertial reference frame.
 
 ```python
 class InertialReferenceFrameDisclaimer(Scene)
