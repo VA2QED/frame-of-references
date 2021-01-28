@@ -96,8 +96,6 @@ self.add(label)
 self.wait()
 ```
 
-
-
 When we ask the stationary observer the path of motion of the ball, it will say that the ball has moved from the position -4 to the position of 7 on the number line. 
 
 ```python
@@ -107,31 +105,11 @@ self.add(stationary_observer)
 self.wait()
 ```
 
-### MovingPerspective
-
-However, when we ask the observer in the moving car about its experiences a box, it will first complain about being stuck inside a box without any knowledge of the outside and say that the ball is stationary relative to it.  
-
-```python
-# adding numberline
-self.play(ShowCreation(number_line))
-self.add(label)
-self.wait()
-# TODO: make camera zoom ins less janky.
-self.play(self.camera_frame.animate.scale(0.5).move_to(ball))
-# adding ball
-self.play(ShowCreation(ball))
-self.add(moving_observer)
-self.wait()
-# moving camera
-self.camera_frame.add_updater(lambda d: d.move_to(ball.get_center()))
-# moving object
-self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
-self.play(Restore(self.camera_frame))
-```
-
 
 
 ### MovingPerspectiveHideNumberLine
+
+However, when we ask the observer in the moving car about its experiences a box, it will first complain about being stuck inside a box without any knowledge of the outside and say that the ball is stationary relative to it. 
 
 To help understand the observer in the car's perspective better, I'm going to move the camera along with the car, and remove the number line. I'm going to start moving now.  
 
@@ -158,8 +136,9 @@ self.wait()
 
 
 
-What? Nothing's moving? Exactly. This is exactly what the observer in the car sees as well. The car is moving at a constant velocity so nothing inside the car experiences any accelerations. The observer only knows that the ball is stationary relative to it. Thus, it has no idea that it, along with the ball is moving relative to a number line at a constant velocity as well.
+What? You can't tell if the ball, car and the observer are moving or not? Exactly. This is exactly what the observer in the car sees as well. The car is moving at a constant velocity so nothing inside the car experiences any accelerations. The observer only knows that the ball is stationary relative to it. 
 
+### OwnReferenceFrame
 
+In fact, the observer that is in the moving car is not in the same reference frame as the stationary observer, this creates a disagreement between the measurements of the position and change of position of the ball.
 
-The moving observer has a different frame of reference that is stationary relative to the moving car.
