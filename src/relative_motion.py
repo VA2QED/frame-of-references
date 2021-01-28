@@ -34,12 +34,24 @@ class DemonstrationOfRelativeMotion(Scene):
         # the car will be moved around and the observer and the ball will follow it in an updater
         car.move_to(np.array([number_line.point_to_number(-4), 0.5, 0]))
         moving_car_path = Line(start=np.array([-4, 0.5, 0]), end=np.array([5, 0.5, 0]))
+
         # value to indicate the position of the car
         position_label = Tex("$x=$")
         position_label.move_to(np.array([4, 3, 0]))
         position_number = DecimalNumber(-4, include_sign=True, num_decimal_places=3, show_ellipsis=True)
         position_number.next_to(position_label, direction=RIGHT)
         position_number.add_updater(lambda d: d.set_value(car.get_x()))
+
+        # value to indicate the time elapsed
+        time_label = Tex("$t=$")
+        time_label.next_to(position_label, direction=DOWN)
+        time_number = DecimalNumber(0, num_decimal_places=3, show_ellipsis=True, unit="s")
+        time_number.next_to(time_label, direction=RIGHT)
+        # I'm sorry, I can't think of a better way of keeping track of time other than keeping track of
+        # the position of an object move from 0 to 4 on the number line.
+        time_dot = Dot(ORIGIN, fill_opacity=0)  # you don't see anything
+        time_number.add_updater(lambda d: d.set_value(time_dot.get_x()))
+        time_dot_path = Line(np.array([0, 0, 0]), np.array([4, 0, 0]))
 
         # adding observer and ball
         ball = Circle(radius=0.2, color=GREEN, fill_opacity=1, fill_color=GREEN)
@@ -49,28 +61,34 @@ class DemonstrationOfRelativeMotion(Scene):
         moving_observer.move_to(np.array([-4 - 0.75, 0.85, 0])).set_color(BLUE)
         moving_observer.scale(0.2)
 
-        # adding updater for ball and moving observer, notice plus or minus 0.4 for the x position,
-        # this is to ensure the observer is left of the car and ball is right of the car at all times
+        # adding updater for ball and moving observer, notice -0.75 for the x position of moving observer, it follows
+        # the ball by a bit behind
         ball.add_updater(lambda d: d.move_to(np.array([car.get_x(), 0.85, 0])))
         moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x()-0.75, 0.85, 0])))
 
         # Adding number line
         self.play(ShowCreation(number_line))
-        self.add(label)
+        self.play(Write(label))
         self.wait()
         # Adding stationary object
-        self.add(stationary_observer)
+        self.play(FadeIn(stationary_observer))
         self.wait()
         # adding car and position label
         self.play(ShowCreation(car))
         self.play(ShowCreation(ball))
-        self.play(ShowCreation(position_label), ShowCreation(position_number))
+        self.play(Write(position_label), Write(position_number))
         self.wait()
         # adding moving observer
-        self.add(moving_observer)
+        self.play(FadeIn(moving_observer))
+        self.wait()
+        # adding time indicator
+        self.play(Write(time_label), Write(time_number))
         self.wait()
         # playing animation
-        self.play(MoveAlongPath(car, moving_car_path), rate_func=linear, run_time=4)
+        self.play(
+            MoveAlongPath(car, moving_car_path),
+            MoveAlongPath(time_dot, time_dot_path),
+            rate_func=linear, run_time=4)
         self.wait()
 
 
@@ -104,28 +122,31 @@ class StationaryPerspective(Scene):
 
         # adding number line
         self.play(ShowCreation(number_line))
-        self.add(label)
+        self.play(Write(label))
         self.wait()
         # adding ball, brace and the number for the ball's position
-        self.play(ShowCreation(ball), ShowCreation(brace_to_ball), ShowCreation(ball_position))
-        self.add(stationary_observer)
+        self.play(ShowCreation(ball), ShowCreation(brace_to_ball), Write(ball_position))
+        self.play(FadeIn(stationary_observer))
         self.wait()
         # playing animation
         self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
         self.wait()
 
 
+# this scene may be quite repetitive, we can just go straight to the hiding number line scene
+
 # This one will play with the camera focusing on the car, it is meant to give a general idea
 # on the motion of the ball that is relative to blue, the next scene will remove the number line
 # to show that blue really has no idea that the ball is moving relative to something else
+"""
 class MovingPerspective(MovingCameraScene):
     def setup(self):
         MovingCameraScene.setup(self)
 
     def construct(self):
-        """
-        same as before, except moving perspective and is Moving Camera Scene
-        """
+
+        # same as before, except moving perspective and is Moving Camera Scene
+        
         # Setting up number line
         number_line = NumberLine(color=WHITE, include_numbers=True, include_tip=True)
         label = Tex("$x$")
@@ -160,6 +181,7 @@ class MovingPerspective(MovingCameraScene):
         # moving object
         self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
         self.play(Restore(self.camera_frame))  # considering not zooming out
+"""
 
 
 class MovingPerspectiveHideNumberLine(MovingCameraScene):
@@ -187,22 +209,35 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
         moving_observer.move_to(np.array([-4 - 0.75, 0.5, 0])).set_color(BLUE)
         moving_observer.scale(0.2)
 
+        # value to indicate the time elapsed
+        time_label = Tex("$t=$")
+        time_label.next_to(moving_observer, direction=UP)
+        time_number = DecimalNumber(0, num_decimal_places=3, show_ellipsis=True, unit="s")
+        time_number.next_to(time_label, direction=RIGHT)
+        # I'm sorry, I can't think of a better way of keeping track of time other than keeping track of
+        # the position of an object move from 0 to 4 on the number line.
+        time_dot = Dot(ORIGIN, fill_opacity=0)  # you don't see anything
+        time_number.add_updater(lambda d: d.set_value(time_dot.get_x()))
+        time_dot_path = Line(np.array([0, 0, 0]), np.array([4, 0, 0]))
+
         # adding number line
         self.play(ShowCreation(number_line))
-        self.add(label)
+        self.play(Write(label))
         self.wait()
         # zooming in
         self.play(self.camera_frame.animate.scale(0.5).move_to(ball))
         # adding ball and observer
         self.play(ShowCreation(ball))
-        self.add(moving_observer)
+        self.play(FadeIn(moving_observer))
         self.wait()
         # moving camera
         self.camera_frame.add_updater(lambda d: d.move_to(ball.get_center()))
+        self.play(Write(time_label), Write(time_number))
         # If you are reading this code, think about why I didn't need to animate the ball moving
         # removing number line
-        self.remove(number_line)
-        self.wait(6)  # this is the amount of time that the movement would usually take + 2 seconds for awkwardness
+        self.play(FadeOutAndShift(number_line, direction=DOWN))
+        self.play(MoveAlongPath(time_dot, time_dot_path), rate_func=linear, run_time=4)
+        self.wait()
         self.play(Restore(self.camera_frame))  # considering not zooming out
         self.wait()
 
@@ -214,3 +249,27 @@ class OwnReferenceFrame(Scene):
         there will be a main number line present and then another number line indicating the reference frame of the
         observer shows up ontop of the observer.
         """
+        number_line = NumberLine(color=GREY,
+                                 x_min=-1,
+                                 x_max=2,
+                                 number_at_center=0.5,
+                                 unit_size=3,
+                                 include_ticks=False,
+                                 include_tip=True,
+                                 include_numbers=False,
+                                 )
+        moving_observer = ImageMobject("./assets/manim/eye.png")
+        moving_observer.move_to(np.array(1.8*LEFT + UP))
+
+        ball = Circle(radius=0.2, color=GREEN, fill_opacity=1, fill_color=GREEN)
+        ball.next_to(moving_observer, direction=2.25*RIGHT)
+
+        moving_observer.set_color(BLUE)
+        moving_observer.scale(0.2)
+
+        label = Tex("$x'$")  # \prime looks ridiculously large on the x lmao, so an apostrophe will suffice
+        label.move_to(np.array([3.5, -0.75, 0]))
+
+        self.play(ShowCreation(number_line), Write(label))
+        self.play(FadeIn(moving_observer), ShowCreation(ball))
+        self.wait()

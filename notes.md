@@ -140,5 +140,15 @@ What? You can't tell if the ball, car and the observer are moving or not? Exactl
 
 ### OwnReferenceFrame
 
-In fact, the observer that is in the moving car is not in the same reference frame as the stationary observer, this creates a disagreement between the measurements of the position and change of position of the ball.
+```python
+self.play(ShowCreation(number_line), Write(label))
+self.play(FadeIn(moving_observer), ShowCreation(ball))
+self.wait()
+```
+
+
+
+In fact, the observer that is in the moving car is not in the same reference frame as the stationary observer, as demonstrated beforehand, this creates a disagreement between the measurements of the position and change of position of the ball.
+
+
 
