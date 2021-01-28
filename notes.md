@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Hello everyone, in this video we are going to attempt to explain the concept of a reference frame.
+Hello everyone, in this video we would like to explain the concept of a reference frame, in the context of physics and motion.
 
 ```python
 class SelfIntroduction(Scene)
@@ -12,7 +12,7 @@ class SelfIntroduction(Scene)
 
 
 
-First of all, a reference frame is composed of an origin and methods of describing the position and orientation of an object relative to the origin. A frame of reference seeks to systematically answer the question of where something is in time and space. Also please note that for this video, the observer is placed at the origin for ease. An observer can also be a certain distance away from the origin.
+First and foremost, a reference frame is "assigned" an origin. Consequently, various methods and equipment are utlised in order to describe the position and orientation of an object, relative to this origin. In essnse, a frame of reference seeks to systematically answer the question of *where* something is in time and space. Also please note that for this video, the observer is placed at the origin for ease. An observer can also be a certain distance away from the origin.
 
 ```python
 class ReferenceFrameDefWords(Scene)
@@ -20,7 +20,7 @@ class ReferenceFrameDefWords(Scene)
 
 
 
-As an example, this moving green point can be described by saying it is a at a position of x from the origin's x axis and a position of y from the origin's y axis, of course assuming that the right direction indicates a positive . This is known as a Cartesian coordinate system.
+As an example, the positon of this moving green point can be described by saying it is a at a position of x from the origin's x axis and a position of y from the origin's y axis, of course assuming that the right direction indicates motion in the positive direction. This is known as a Cartesian coordinate system, which you may have encountered in math class.
 
 ```python
 class ReferenceFrameExample(Scene)
@@ -28,7 +28,7 @@ class ReferenceFrameExample(Scene)
 
 
 
-For the purposes of this video, we are only going to explain what is known as inertial reference frames. Inertial reference frames are frames of references in which itself is not experiencing a force, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up or slowing down is not an inertial reference frame.
+For the purposes of this video, we are only going to discuss inertial reference frames. So, what is an *inetial* frame of reference? An Inertial reference frame is a frames of references which itself is not experiencing a force, or "pushes and pulls". For example, if your reference frame is a car moving at a constant velocity, then that is an inertial reference frame. However, a car that is speeding up or slowing down is not an inertial reference frame.
 
 ```python
 class InertialReferenceFrameDisclaimer(Scene)
