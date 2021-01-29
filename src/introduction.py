@@ -6,8 +6,6 @@ class SelfIntroduction(Scene):
         title = Tex("Frames of References") \
             .scale(3) \
             .set_color_by_gradient(GREEN, YELLOW)
-        # TODO: make sure i spell ashmita's name right, yes it's the
-        #  same as the names on our portals... but can you be sure???
         names = Tex("Ashmita Bhattacharyya, Bokuan Li, Jixin Chen") \
             .set_color(BLUE) \
             .next_to(title, direction=DOWN)
@@ -107,10 +105,10 @@ class InertialReferenceFrameDisclaimer(Scene):
 class Everything(Scene):
     def construct(self):
         SelfIntroduction.construct(self)
-        SelfIntroduction.clear(self)
+        self.clear()
         ReferenceFrameDefWords.construct(self)
-        ReferenceFrameDefWords.clear(self)
+        self.clear()
         ReferenceFrameExample.construct(self)
-        ReferenceFrameExample.clear(self)
+        self.clear()
         InertialReferenceFrameDisclaimer.construct(self)
-        InertialReferenceFrameDisclaimer.clear(self)
+        self.clear()
