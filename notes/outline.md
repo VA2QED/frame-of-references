@@ -7,7 +7,10 @@
   * Problem: How do the observers come to an agreement with each other about the orientation and position of the object.
   * Solution: introduce an universal origin and a direction system [a compass] that allows both observers to *convert* their own reference frames [centred at their origin] into a **shared** reference frame. 
 * Situation 2:
-  * [To be added]
+  * Setting: Stationary, moving observer and an object that is moving with the observer
+  * Problem: The stationary observer and the moving observer disagree on the motion of the object, stationary observer says that it is moving and moving observer says that it is stationary
+  * Solution: The moving observer is allowed to use the stationary observer's reference frame and understands that the reference frame that it was using before was indeed moving at the same velocity as the moving object relatively to the stationary observer's motion.
+* Situation 3:
 
 ## 
 

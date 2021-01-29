@@ -202,4 +202,4 @@
 
 **By choosing a common point of reference, the two observers come to an agreement to the position of the object.**
 
-![position and orientation](./assets/notes/orientation-and-position.png)
+![position and orientation](./../assets/notes/orientation-and-position.png)
