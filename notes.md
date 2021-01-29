@@ -109,7 +109,7 @@ class InertialReferenceFrameDisclaimer(Scene)
 
 **So which way is the object facing? There can be only one, right?**
 
-*Animation: shake or stretch the object to emphasise its direction.*
+*Animation: shake [rotate] or stretch the object to emphasise its direction.*
 
 *Animation: show and shake question marks above the observers.*
 
@@ -173,9 +173,79 @@ class InertialReferenceFrameDisclaimer(Scene)
 
 **Where is the object?**
 
+> Present the perspective of the top observer.
 
+*Animation: darken bottom observer and potentially zoom in as we introduce the perspective of the top observer.*
 
+*Animation: show the top observer's axis now labelled with compass directions.*
 
+*Animation: show a Cartesian plane centred at the top observer*
+
+**[Top Observer] would say that the object is [some units] to their north and [some units] to their east.**
+
+*Animation: draw dotted lines from the object to the axis of the Cartesian plane, then highlight the axis on the Cartesian plane and label them to show the distance.*
+
+*Animation: hide the axis and the cartesian plane of the top observer.*
+
+*Animation: brighten the bottom observer and zoom out as we exit the perspective of the top observer.*
+
+> Present the perspective of the bottom observer.
+
+*Animation: darken top observer and potentially zoom in as we introduce the perspective of the bottom observer.*
+
+*Animation: show the bottom observer's axis and Cartesian plane.*
+
+**[Bottom Observer] would say that the object is [some units] to their north and [some units] to their west.**
+
+*Animation: draw dotted lines from the object to the axis of the Cartesian plane, then highlight the axis on the Cartesian plane and label them to show the distance.*
+
+*Animation: hide the axis and the cartesian plane of the bottom observer.*
+
+*Animation: brighten the top observer and zoom out as we exit the perspective of the bottom observer.*
+
+> Present the conflict between the observers again.
+
+**So, where is the object? It's only at one position right?**
+
+*Animation: shake the object to emphasise its position.*
+
+**Same as before, the observers are talking about the same position, but are describing it differently.**
+
+> Then present a solution: universal coordinate system.
+>
+> The reference object can be anything - however it must be different from the original object and have no orientation, this is to make sure that it stands out and that it does not suggest any directions - since the observers are using compasses to represent directions.
+
+**The two observers [use their names here instead] decided to look for something that they can both reference upon. Luckily, the found [reference object].**
+
+*Animation: show the reference object.*
+
+**The [reference object] stays in one place no matter where the two observers go.**
+
+*Animation: shake reference object.*
+
+> Present the question again
+
+**So, where is the object?**
+
+*Animation: show the axis of both observers, but shake them as they are incompatible.*
+
+*Animation: show and shake question marks above the observers.*
+
+> Demonstrate that the use of an universal reference makes a difference in the observations.
+
+*Animation: hide the axis of both observers.*
+
+*Animation: show a Cartesian plane and axis centred at the reference object.*
+
+**They decide to look at the object again, but with respect to [reference object] instead.**
+
+*Animation: draw a line from the reference object to the object.*
+
+**The object is [some units] to the north of the [reference object].**
+
+*Animation: highlight the line to show that the observers are in agreement.*
+
+**By choosing a common point of reference, the two observers come to an agreement to the position of the object.**
 
 ![position and orientation](./assets/notes/orientation-and-position.png)
 
