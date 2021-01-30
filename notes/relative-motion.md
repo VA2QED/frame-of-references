@@ -13,7 +13,7 @@ self.add(label)
 self.wait()
 ```
 
-To demonstrate relative motion, let's say that the red eye, as a stationary observer is asked to describe the motion of a ball inside the car relative to a number line.
+To demonstrate relative motion, let's say that the red stationary observer is asked to describe the motion of a ball inside the car relative to a number line. The red observer is not moving with respect to that number line.
 
 ```python
 # Adding stationary object
@@ -131,4 +131,4 @@ The answer is that which reference frame you use can be based off of context and
 
 would you use the surface of the Earth as a reference frame and say that your position has a 1000 meter change? 
 
-or would you use the sun as a reference frame and say that your position has a 26820 km change?
+or would you use the sun as a reference frame and say that your position has changed for approximately 27000 km?

@@ -187,10 +187,10 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
 class Confusion(Scene):
     def construct(self):
         stationary_observer = Observer(colour=RED)
-        stationary_observer.scale(0.8).move_to(2 * RIGHT + DOWN)
+        stationary_observer.scale(0.8).move_to(2 * RIGHT)
 
-        moving_observer = ImageMobject("./assets/manim/eye.png").set_color(BLUE)
-        moving_observer.scale(0.4).move_to(2 * LEFT + UP)
+        moving_observer = Observer(colour=BLUE)
+        moving_observer.scale(0.8).move_to(2 * LEFT)
 
         question_marks = [
             Text("?").next_to(stationary_observer, direction=UP),
