@@ -10,15 +10,16 @@ class Observer(VGroup):
 
         radius = 0.5
 
-        self.base = Circle(radius=radius).set_fill(color=colour, opacity=1.0).set_stroke(color=colour)
+        self.base = Circle(radius=0.5).set_fill(color=colour, opacity=1.0).set_stroke(width=0)
 
-        triangle_side_length = sqrt((2 - cos(120 * PI / 180)) * pow(radius, 2))
+        # Multiplying the radius by a bit to make it larger when calculating the size of the triangle as it is somehow
+        # a bit smaller than the circle.
+        triangle_side_length = sqrt((2 - cos(120 * PI / 180)) * pow(radius * 1.1, 2))
         triangle_height = sin(60 * PI / 180) * triangle_side_length
-        print(triangle_side_length)
-        print(triangle_height)
+
         self.triangle = Triangle().set_width(triangle_side_length) \
             .set_height(triangle_height) \
-            .set_fill(color=WHITE, opacity=1.0).set_stroke(color=WHITE) \
+            .set_fill(color=WHITE, opacity=1.0).set_stroke(width=0) \
             .align_to(self.base, direction=UP)
 
         self.add(self.base, self.triangle)
