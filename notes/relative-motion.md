@@ -28,7 +28,7 @@ self.wait()
 
 
 
-On this car, the blue eye is also asked to observe the motion of the same ball. 
+On this car, the blue observer is also asked to observe the motion of the same ball. 
 
 ```python
 # adding moving observer
@@ -38,7 +38,7 @@ self.wait()
 
 
 
-Imagine that we have trapped the blue eye in a car with one way mirrors and it does not know that the car is moving at a constant velocity relative to the number line. Also, let's say that the car and the object was already moving at a constant speed when the animation starts.
+Imagine that we have trapped the blue observer in a car with one way mirrors and it does not know that the car is moving at a constant velocity relative to the number line. Also, let's say that the car and the object was already moving at a constant velocity when the animation starts.
 
 >  TODO: animation: a box around the observer and the moving car. An arrow from the stationary observer to the moving observer 
 >
@@ -63,7 +63,7 @@ self.add(label)
 self.wait()
 ```
 
-When we ask the stationary observer the path of motion of the ball, it will say that the ball has moved from the position -4 to the position of 7 with respect to its number line in the span of 4 seconds.
+When we ask the stationary observer the motion of the ball, it will say that the ball has moved from the position -4 to the position of 7 with respect to its number line in the span of 4 seconds.
 
 ```python
 # adding ball, brace and the number for the ball's position
@@ -78,7 +78,7 @@ self.wait()
 
 However, when we ask the observer in the moving car, it will say that the ball seems to be stationary. 
 
-To help understand the observer in the car's perspective better, I'm going to move the camera along with the car, and remove the number line to simulate the moving observer's restriction on not being able to see the stationary observer. The car will start to move... now.  
+To help understand the observer in the car's perspective better, I'm going to move the camera along with the car, and remove the number line to restrict access to the stationary reference frame.  
 
 ```python
 # adding number line
@@ -113,18 +113,16 @@ why is it that the two observers have different descriptions of the motions of t
 
 ### ExplanationOfConflict 
 
-To understand the confusion better, let's put a number line that moves with the car as well.
+To understand the confusion better, let's put a reference frame of the moving observer that moves with the car as well.
 
 > animation: add everything to the scene and add the reference frame
 
-Since the ball, the moving observer, that number line that we have added and the car are moving at the same velocity, they are stationary relatively to each other. Thus this is the origin of the moving observer's conclusion that the ball is stationary relative to it. 
-
-Before I play the animation again, I want to emphasise the fact that the moving observer's reference frame is actually moving at the same velocity as the observer and the object, as this is the reason why the moving observer reports that the object is stationary.
+Since the ball, the moving observer, its reference frame, the car are moving at the same velocity, they are stationary relatively to each other. Thus the moving observer says that the ball is stationary relative to it.
 
 > animation: the car moving to the right, but this time there will be a number line attached to the moving observer.
 
-WhichReferenceFrame
-
+### WhichReferenceFrame
+```
 However, the conflict of the motion and position of the object still remains. What is the velocity of the object? Which reference frame should be used?
 
 The answer is that which reference frame you use can be based off of context and convenience. For example, if you want to describe your displacement after taking a 15 minute walk,
@@ -132,3 +130,6 @@ The answer is that which reference frame you use can be based off of context and
 would you use the surface of the Earth as a reference frame and say that your position has a 1000 meter change? 
 
 or would you use the sun as a reference frame and say that your position has changed for approximately 27000 km?
+```
+
+You may be asking yourself which reference frame is correct. The answer is that both reference frames can be used based on the context. Motion is relative, therefore both measurements can be useful based on practicality.  
