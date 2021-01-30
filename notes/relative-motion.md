@@ -38,13 +38,21 @@ self.wait()
 
 
 
-Imagine that we have trapped the blue eye in a car with one way mirrors and it does not know that the car is moving at a constant velocity relative to the number line. Also, let's say that the car and the object was already moving at a constant speed when the animation starts, meaning that there is no acceleration to begin with. Let's hit unpause and see the car move.
+Imagine that we have trapped the blue eye in a car with one way mirrors and it does not know that the car is moving at a constant velocity relative to the number line. Also, let's say that the car and the object was already moving at a constant speed when the animation starts.
+
+>  TODO: animation: a box around the observer and the moving car. An arrow from the stationary observer to the moving observer 
+>
+> animation: and an arrow from the moving observer to the stationary observer, but with a big cross to indicate that the moving observer IS NOT allowed to use the reference frame of the stationary observer.
+
+ Let's hit unpause and see the car move.
 
  ```python
 # Playing animation
 self.play(MoveAlongPath(car, moving_car_path), rate_func=linear, run_time=4)
 self.wait()
  ```
+
+Now, let's ask the two observers to describe the motion of the ball.
 
 ### StationaryPerspective
 
@@ -55,7 +63,7 @@ self.add(label)
 self.wait()
 ```
 
-When we ask the stationary observer the path of motion of the ball, it will say that the ball has moved from the position -4 to the position of 7 on the number line. 
+When we ask the stationary observer the path of motion of the ball, it will say that the ball has moved from the position -4 to the position of 7 with respect to its number line in the span of 4 seconds.
 
 ```python
 # adding ball, brace and the number for the ball's position
@@ -68,9 +76,9 @@ self.wait()
 
 ### MovingPerspectiveHideNumberLine
 
-However, when we ask the observer in the moving car about its experiences a box, it will first complain about being stuck inside a box without any knowledge of the outside and say that the ball is stationary relative to it. 
+However, when we ask the observer in the moving car, it will say that the ball seems to be stationary. 
 
-To help understand the observer in the car's perspective better, I'm going to move the camera along with the car, and remove the number line. I'm going to start moving now.  
+To help understand the observer in the car's perspective better, I'm going to move the camera along with the car, and remove the number line to simulate the moving observer's restriction on not being able to see the stationary observer. The car will start to move... now.  
 
 ```python
 # adding number line
@@ -95,17 +103,32 @@ self.wait()
 
 
 
-What? You can't tell if the ball, car and the observer are moving or not? Exactly. This is exactly what the observer in the car sees as well. The car is moving at a constant velocity so nothing inside the car experiences any accelerations. The observer only knows that the ball is stationary relative to it. 
+### Confusion
 
-### OwnReferenceFrame
+> animation: the two observers are confused with question marks.
 
-```python
-self.play(ShowCreation(number_line), Write(label))
-self.play(FadeIn(moving_observer), ShowCreation(ball))
-self.wait()
-```
+why is it that the two observers have different descriptions of the motions of the same object?
 
 
 
-In fact, the observer that is in the moving car is not in the same reference frame as the stationary observer, as demonstrated beforehand, this creates a disagreement between the measurements of the position and change of position of the ball.
+### ExplanationOfConflict 
 
+To understand the confusion better, let's put a number line that moves with the car as well.
+
+> animation: add everything to the scene and add the reference frame
+
+Since the ball, the moving observer, that number line that we have added and the car are moving at the same velocity, they are stationary relatively to each other. Thus this is the origin of the moving observer's conclusion that the ball is stationary relative to it. 
+
+Before I play the animation again, I want to emphasise the fact that the moving observer's reference frame is actually moving at the same velocity as the observer and the object, as this is the reason why the moving observer reports that the object is stationary.
+
+> animation: the car moving to the right, but this time there will be a number line attached to the moving observer.
+
+WhichReferenceFrame
+
+However, the conflict of the motion and position of the object still remains. What is the velocity of the object? Which reference frame should be used?
+
+The answer is that which reference frame you use can be based off of context and convenience. For example, if you want to describe your displacement after taking a 15 minute walk,
+
+would you use the surface of the Earth as a reference frame and say that your position has a 1000 meter change? 
+
+or would you use the sun as a reference frame and say that your position has a 26820 km change?
