@@ -269,9 +269,6 @@ class ExplanationOfConflict(Scene):
         self.wait()
 
 
-# TODO: learn more about cameras so that zooming out and showing a sun would be possible
-#  this scene will server to explain the flexibility of which reference frame can be used
-#  for different contexts.
 class WhichReferenceFrame(Scene):
     def construct(self):
         # stationary or moving observer?
@@ -284,3 +281,8 @@ class WhichReferenceFrame(Scene):
         self.play(Write(or_text), Write(question_mark))
         self.wait()
         self.clear()
+
+        relative = MarkupText('Motion is <color col="GREEN">relative</color>')
+        self.play(Write(relative))
+        self.wait()
+
