@@ -3,20 +3,20 @@
 ### Orientation
 
 >  [Removed the mention to reference frames] Let us introduce the problem before creating the concepts. Instead of introducing the observers first, it is more optimal to introduce the subject of the discussion - the object. Introducing it first allows the audience to look at the object and come up with their own judgment before the observers' perspectives are presented.
->
+> 
 >  TODO: it is better to replace the object with something else, be it a car or an arrow that has an orientation associated with it instead of a triangle (directions can be confused if you use a simple shape). 
 
-**Let us say that we have an object, facing this way.**
+**Let us say that we have a triangle, facing this way.**
 
 *Animation: create and rotate object.*
 
 > Introducing the observers. I strongly prefer to not use my name. 
->
-> TODO: We also prefer to use simpler names instead of our real names as they are easier to process. Naming observers also face the challenge of labelling the observers and having to reinforce the names throughout the presentation as they can be forgotten. Possible candidates can be the classic *Alice and Bob* or colour-coded observers *Blue and Orange* for example.
->
+> 
+> TODO: We also prefer to use simpler names instead of our real names as they are easier to process. Naming observers also face the challenge of labeling the observers and having to reinforce the names throughout the presentation as they can be forgotten. Possible candidates can be the classic *Alice and Bob* or colour-coded observers *Blue and Orange* for example.
+> 
 > Instead of directly saying reference frames, we indirectly indicate their position and orientation.
 
-**And we have two observers, [Top Observer] and [Bottom Observer] facing each other on the opposite end of the screen.** 
+**And we have two observers, Blue and Orange facing each other on the opposite end of the screen.** 
 
 *Animation: create and show the observers.*
 
@@ -26,19 +26,19 @@
 
 > Instead of describing the situation in an "observer" tone, ask questions to try to have some engagement with the audience.
 
-**So, which way is the object facing?**
+**So, which way is the triangle facing?**
 
 > As mentioned earlier - using a shape makes describing the directions more difficult. 
->
+> 
 > We are also separating orientation and position since asking them together can force too much information to be processed at once.
->
+> 
 > We then present the perspectives on the directions.
 
 *Animation: darken bottom observer and potentially zoom in as we introduce the perspective of the top observer.*
 
 *Animation: show the "axis" of the top observer. Show all 4 directions and label them "front, back, left, right".*
 
-**[Top Observer] would say that the object is facing their left.**
+**Blue would say that the object is facing their left.**
 
 *Animation: extend (emphasise) and potentially brighten the "left" arrow and stretch the object to show the congruency in their orientation.*
 
@@ -52,7 +52,7 @@
 
 *Animation: show the "axis" of the bottom observer. Show all 4 directions and label them "front, back, left, right".*
 
-**[Bottom Observer] would say that the object is facing their right.** 
+**Orange would say that the object is facing their right.** 
 
 *Animation: extend (emphasise) and potentially brighten the "right" arrow and stretch the object to show the congruency in their orientation.*
 
@@ -76,7 +76,7 @@
 
 > Then introduce an universal direction system, the compass always points at the same direction.
 
-**Then how can the two observers [use their names here instead] come to an agreement? They decide to look for something that they can both have, and found a compass. **
+**Then how can the two observers [use their names here instead] come to an agreement? They decide to look for something that they can both have, and found a compass.**
 
 *Animation: hide the observers and the object to introduce the compass.*
 
@@ -84,7 +84,7 @@
 
 > Specify that the compass always points at the same direction to clear up any potential confusion and make sure that people realise that this system can be shared.
 
-**The compass always points to the same direction, no matter of where you put it and how you rotate it. **
+**The compass always points to the same direction, no matter of where you put it and how you rotate it.**
 
 *Note: for this instance, the compass will have its red arrow always pointing **right** as that will be the direction of the object.*
 
@@ -92,7 +92,7 @@
 
 *Animation: show the observers and the object again.*
 
-**The two observers [use their names here instead] decided to each take a compass and take a look at the object again.**
+**Blue and Orange decided to each take a compass and take a look at the object again.**
 
 *Animation: give each observer a compass.*
 
@@ -124,7 +124,7 @@
 
 > After the first problem is resolved, introduce the second one. 
 
-**Now that they [use the observers' names here] have come to an agreement with the direction, they begun thinking about a new question.**
+**Now that they have come to an agreement with the direction, they begun thinking about a new question.**
 
 **Where is the object?**
 
@@ -136,11 +136,11 @@
 
 *Animation: show a Cartesian plane centred at the top observer*
 
-**[Top Observer] would say that the object is [some units] to their north and [some units] to their east.**
+**Blue would say that the object is 3 units to their north and 5 units to their east.**
 
 *Animation: draw dotted lines from the object to the axis of the Cartesian plane, then highlight the axis on the Cartesian plane and label them to show the distance.*
 
-*Animation: hide the axis and the cartesian plane of the top observer.*
+*Animation: hide the axis and the Cartesian plane of the top observer.*
 
 *Animation: brighten the bottom observer and zoom out as we exit the perspective of the top observer.*
 
@@ -150,11 +150,11 @@
 
 *Animation: show the bottom observer's axis and Cartesian plane.*
 
-**[Bottom Observer] would say that the object is [some units] to their north and [some units] to their west.**
+**Orange would say that the object is 3 to their north and 5 units to their west.**
 
 *Animation: draw dotted lines from the object to the axis of the Cartesian plane, then highlight the axis on the Cartesian plane and label them to show the distance.*
 
-*Animation: hide the axis and the cartesian plane of the bottom observer.*
+*Animation: hide the axis and the Cartesian plane of the bottom observer.*
 
 *Animation: brighten the top observer and zoom out as we exit the perspective of the bottom observer.*
 
@@ -162,19 +162,21 @@
 
 **So, where is the object? It's only at one position right?**
 
-*Animation: shake the object to emphasise its position.*
+*Animation: show and shake question marks above the observers.*
+
+*Animation: highlight the object and the observers' descriptions to emphasise its position.*
 
 **Same as before, the observers are talking about the same position, but are describing it differently.**
 
 > Then present a solution: universal coordinate system.
->
+> 
 > The reference object can be anything - however it must be different from the original object and have no orientation, this is to make sure that it stands out and that it does not suggest any directions - since the observers are using compasses to represent directions.
 
-**The two observers [use their names here instead] decided to look for something that they can both reference upon. Luckily, the found [reference object].**
+**They decided to look for something that they can both reference upon. Luckily, the found a water fountain.**
 
 *Animation: show the reference object.*
 
-**The [reference object] stays in one place no matter where the two observers go.**
+**The water fountain stays in one place no matter where the two observers go.**
 
 *Animation: shake reference object.*
 
@@ -182,24 +184,18 @@
 
 **So, where is the object?**
 
-*Animation: show the axis of both observers, but shake them as they are incompatible.*
-
-*Animation: show and shake question marks above the observers.*
-
 > Demonstrate that the use of an universal reference makes a difference in the observations.
 
 *Animation: hide the axis of both observers.*
 
 *Animation: show a Cartesian plane and axis centred at the reference object.*
 
-**They decide to look at the object again, but with respect to [reference object] instead.**
+**They decide to look at the object again, but with respect to the water fountain instead.**
 
 *Animation: draw a line from the reference object to the object.*
 
-**The object is [some units] to the north of the [reference object].**
+**The object is 4 to the north and 2 units to the west of the water fountain.**
 
 *Animation: highlight the line to show that the observers are in agreement.*
 
 **By choosing a common point of reference, the two observers come to an agreement to the position of the object.**
-
-![position and orientation](./../assets/notes/orientation-and-position.png)
