@@ -31,7 +31,6 @@ class PathLines(VGroup):
         else:
             self.vertical_brace = BraceLabel(self.vertical_axis_line, abs(target.y).__str__(), brace_direction=LEFT)
 
-
         self.add(self.horizontal_axis_line, self.vertical_axis_line,
                  self.horizontal_line_to_object, self.vertical_line_to_object,
                  self.horizontal_brace, self.vertical_brace)
