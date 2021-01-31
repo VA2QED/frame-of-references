@@ -282,7 +282,11 @@ class WhichReferenceFrame(Scene):
         self.wait()
         self.clear()
 
+        # side note, MarkupText is the preferred class for coloured text by the manim community
+        # the Text class and the text2color parameter is just broken
+        # here, try it for yourself
+        # relative = Text('Motion is relative', t2c={'relative':GREEN})
+
         relative = MarkupText('Motion is <color col="GREEN">relative</color>')
         self.play(Write(relative))
         self.wait()
-
