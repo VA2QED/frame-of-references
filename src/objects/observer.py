@@ -15,14 +15,20 @@ class Observer(VGroup):
         # Multiplying the radius by a bit to make it larger when calculating the size of the triangle as it is somehow
         # a bit smaller than the circle.
         triangle_side_length = sqrt((2 - cos(120 * PI / 180)) * pow(radius * 1.1, 2))
-        triangle_height = sin(60 * PI / 180) * triangle_side_length
 
+        # The triangle indicates the orientation of the observer, the observer is facing the direction that the
+        # triangle is pointing at.
         self.triangle = Triangle().set_width(triangle_side_length) \
-            .set_height(triangle_height) \
+            .set_fill(color=LIGHT_GREY, opacity=1.0).set_stroke(width=0) \
+            .align_to(self.base, direction=UP)
+
+        # Since the triangle itself is equilateral, a tip is added to reinforce the idea of the orientation of the
+        # observer.
+        self.triangle_tip = Triangle().set_width(triangle_side_length / 3) \
             .set_fill(color=WHITE, opacity=1.0).set_stroke(width=0) \
             .align_to(self.base, direction=UP)
 
-        self.add(self.base, self.triangle)
+        self.add(self.base, self.triangle, self.triangle_tip)
 
     # Use the parent implementation of the abstract method.
     def align_points_with_larger(self, larger_mobject):
