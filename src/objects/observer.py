@@ -30,6 +30,12 @@ class Observer(VGroup):
 
         self.add(self.base, self.triangle, self.triangle_tip)
 
+    # In the position and orientation animations, other objects are added into the observer group, this causes the
+    # centre of mass of the observer to shift, causing objects that are supposed to be aligned to it to be misaligned.
+    # By overriding the critical point method, the observer will always use its core as the centre of mass.
+    def get_critical_point(self, direction):
+        return self.base.get_critical_point(direction)
+
     # Use the parent implementation of the abstract method.
     def align_points_with_larger(self, larger_mobject):
         super(Observer, self).align_points_with_larger(larger_mobject)
