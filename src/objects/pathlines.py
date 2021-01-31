@@ -1,6 +1,7 @@
 from manim import *
 from objects.point2d import Point2D
 import numpy as np
+from math import *
 
 
 # Represents the path from an origin to a point, drawing horizontal and vertical lines parallel and perpendicular
@@ -18,8 +19,18 @@ class PathLines(VGroup):
         self.horizontal_line_to_object = DashedLine(np.array([0, target.y, 0]), target_coords)
         self.vertical_line_to_object = DashedLine(np.array([target.x, 0, 0]), target_coords)
 
-        self.horizontal_brace = BraceLabel(self.horizontal_axis_line, target.x.__str__())
-        self.vertical_brace = BraceLabel(self.vertical_axis_line, target.y.__str__(), brace_direction=LEFT)
+        # Orient the braces to not get in the way of the graph.
+        # Use absolute values to indicate distance.
+        if target.y < 0:
+            self.horizontal_brace = BraceLabel(self.horizontal_axis_line, abs(target.x).__str__(), brace_direction=UP)
+        else:
+            self.horizontal_brace = BraceLabel(self.horizontal_axis_line, abs(target.x).__str__(), brace_direction=DOWN)
+
+        if target.x < 0:
+            self.vertical_brace = BraceLabel(self.vertical_axis_line, abs(target.y).__str__(), brace_direction=RIGHT)
+        else:
+            self.vertical_brace = BraceLabel(self.vertical_axis_line, abs(target.y).__str__(), brace_direction=LEFT)
+
 
         self.add(self.horizontal_axis_line, self.vertical_axis_line,
                  self.horizontal_line_to_object, self.vertical_line_to_object,
