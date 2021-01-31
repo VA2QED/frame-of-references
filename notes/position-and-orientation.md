@@ -76,7 +76,7 @@
 
 > Then introduce an universal direction system, the compass always points at the same direction.
 
-**Then how can the two observers [use their names here instead] come to an agreement? They decide to look for something that they can both have, and found a compass.**
+**Then how can they come to an agreement? They decide to look for something that they can both have, and found a compass.**
 
 *Animation: hide the observers and the object to introduce the compass.*
 
