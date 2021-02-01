@@ -28,11 +28,12 @@ However, the moving observer reports that the object only moves up and down.
 
 > Animate: the ball on a car only moving up and down.
 
-As we have mentioned in the previous example, motion is relative. Since the car is moving at the same velocity in the horizontal direction as the projectile, you can say that the motion of the car and the motion in the x direction of the  projectile "cancels out" and an observer moving on the car says that the ball is only moving up and down.
+As we have mentioned in the previous example, motion is relative. Since the car is moving at the same velocity in the horizontal direction as the projectile, the ball appears to not be moving horizontally to the moving observer. The only motion that the moving observer perceives is the vertical up and down motion.
 
 > Animation which reference frame?
 
-
+> animation: Motion is relative
+Since motion is relative, both observations can be used depending on context. 
 
 ![orientation and position](./../assets/notes/projectile-motion-calculations.jpg)
 
