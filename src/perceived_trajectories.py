@@ -269,9 +269,11 @@ class MovingReferenceFrame(GraphScene, MovingCameraScene):
                   ShowCreation(path)
                   )
 
+        # Apparently the updater won't be called unless you animate the object.
+        self.play(self.camera_frame.animate.move_to(np.array([moving_observer.get_x(), 0, 0])))
+
         def update_camera(camera):
-            camera.move_to(moving_observer.get_center())
-            print(moving_observer.get_center())
+            camera.move_to(np.array([moving_observer.get_x(), 0, 0]))
 
         self.camera_frame.add_updater(update_camera)
         self.play(MoveAlongPath(projectile, self.get_graph(self.trajectory, x_min=0, x_max=8)),
