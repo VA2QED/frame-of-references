@@ -11,6 +11,7 @@ from manim import *
 class Introduction(Scene):
     def construct(self):
         title = Text("Position and Orientation").set_color_by_gradient(BLUE, ORANGE)
+        title.scale(1.5)
         self.play(Write(title))
         self.wait()
 
