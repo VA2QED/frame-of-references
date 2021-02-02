@@ -132,4 +132,4 @@ would you use the surface of the Earth as a reference frame and say that your po
 or would you use the sun as a reference frame and say that your position has changed for approximately 27000 km?
 ```
 
-You may be asking yourself which reference frame is correct. The answer is that both reference frames can be used based on the context. Motion is relative, therefore both measurements can be useful based on practicality and the objects that we are observing.
+You may be asking yourself which description of the velocity is correct. The answer is that both the stationary observer and the moving observer's descriptions can be used based on the context. Motion is relative, therefore both measurements can be useful based on practicality and the objects that we are observing.
