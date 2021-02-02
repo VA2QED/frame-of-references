@@ -2,11 +2,7 @@
 
 ###### This comes at the very end of the video
 
-So instead of giving you the definition right at the beginning of the video, I have decided to leave it right to the end. 
-
-A reference frame is composed of an origin and methods of describing the position orientation and time information of an object relative to the origin. 
-
- A frame of reference seeks to systematically answer the question of where something is in space. 
+Finally, a reference frame is composed of an origin and methods of describing the position orientation and time information of an object relative to the origin.  
 
 > animation:  projectile motion and have the two perspectives play side by side. 
 

@@ -4,13 +4,17 @@ from manim import *
 class ThanksForWatching(Scene):
     def construct(self):
         thanks_text = Text("Thank you for watching!").move_to(3*UP)\
-            .set_color_by_gradient(GREEN, BLUE, ORANGE, YELLOW, RED)
+            .set_color_by_gradient(RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE)  # YES, ALL THE COLOURS OF THE RAINBOW!
+
         source_code = Text("The source code for this project can be found at "
                            "\n www.github.com/maffutaffu/frame-of-references").set_color(GREEN).scale(0.5)
         manim_logo = ManimBanner(dark_theme=True).scale(0.5)
         manim_logo.to_corner(DR)
 
-        ashmita = [Text("Ashmita Bhattacharyya: ").move_to(UP+2*LEFT), Text("Narration and editing").move_to(UP+2*RIGHT)]
+        ashmita = [
+            Text("Ashmita Bhattacharyya: ").move_to(UP+2*LEFT),
+            Text("Narration and editing").move_to(UP+2*RIGHT)
+        ]
         jerry = [
             Text("Bokuan Li: ").next_to(ashmita[0], direction=DOWN),
             Text("Animations and Script").next_to(ashmita[1], direction=DOWN)
