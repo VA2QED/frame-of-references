@@ -113,11 +113,11 @@ why is it that the two observers have different descriptions of the motions of t
 
 ### ExplanationOfConflict 
 
-To understand the confusion better, let's put a reference frame of the moving observer that moves with the car as well.
+To understand the confusion between the reported velocities better, let's put a number line that is stationary with the observer as well.
 
 > animation: add everything to the scene and add the reference frame
 
-Since the ball, the moving observer, its reference frame, the car are moving at the same velocity, they are stationary relatively to each other. Thus the moving observer says that the ball is stationary relative to it.
+Since the ball, the moving observer, the car and its number line that can tell it positions of objects are all moving at the same velocity, they are stationary relatively to each other. Thus the moving observer says that the ball is stationary relative to it.
 
 > animation: the car moving to the right, but this time there will be a number line attached to the moving observer.
 
@@ -132,4 +132,4 @@ would you use the surface of the Earth as a reference frame and say that your po
 or would you use the sun as a reference frame and say that your position has changed for approximately 27000 km?
 ```
 
-You may be asking yourself which reference frame is correct. The answer is that both reference frames can be used based on the context. Motion is relative, therefore both measurements can be useful based on practicality.  
+You may be asking yourself which reference frame is correct. The answer is that both reference frames can be used based on the context. Motion is relative, therefore both measurements can be useful based on practicality and the objects that we are observing.

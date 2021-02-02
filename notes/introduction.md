@@ -4,15 +4,9 @@
 >
 > animation: Frame of Reference title
 
-Hello everyone, I'm ________________________. Today we are going to discuss frames of references. In this video, we are not going to give you the definition of a reference frame right now. 
+Hello everyone, I'm Ashmita Bhattacharyya. Today we are going to discuss frames of references. Reference frames are extremely important concepts in physics as they allow for physicists to be able to take meaningful measurements. What's the position, what's the velocity, what's the orientation? All these questions are answered through a concept known as a frame of reference.  
 
-> Animation: definition -> examples [x]
->
-> examples -> definition[o]
+A reference frame is composed of an origin and seeks to describing the position orientation and time information of an object relative to the origin. 
 
-We want you to be able to discover and understand the dependencies with regards to position, orientation, relative motion and trajectories of objects when two observers aren't in the same reference frame. 
-
-> Animation: position and orientation, relative motion and trajectories
-
-You will soon discover the necessity of reference frames to be able to take meaningful measurements in physics and then hopefully, you will be able to understand the definition of a reference frame at the end of the video.
+> definition: A frame of reference seeks to answer the question of the position and orientation over a period of time relative to an origin
 

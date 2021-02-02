@@ -2,13 +2,11 @@
 
 ###### This comes at the very end of the video
 
-So, after exploring these three examples, the definition of a reference frame is 
+So instead of giving you the definition right at the beginning of the video, I have decided to leave it right to the end. 
 
-composed of an origin and methods of describing the position and orientation of an object relative to the origin.
+A reference frame is composed of an origin and methods of describing the position orientation and time information of an object relative to the origin. 
 
-> animation: cartesian plane and a triangle rotating somewhere to illustrate position and orientation
-
- A frame of reference seeks to systematically answer the question of where something is in space and where it is going. 
+ A frame of reference seeks to systematically answer the question of where something is in space. 
 
 > animation:  projectile motion and have the two perspectives play side by side. 
 

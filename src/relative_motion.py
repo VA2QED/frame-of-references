@@ -75,13 +75,13 @@ class DemonstrationOfRelativeMotion(Scene):
         self.play(ShowCreation(car))
         self.play(ShowCreation(ball))
         self.play(Write(position_label), Write(position_number))
-        self.wait()
+        self.wait(4)
         # adding moving observer
         self.play(FadeIn(moving_observer))
-        self.wait()
+        self.wait(2)
         # adding time indicator
         self.play(Write(time_label), Write(time_number))
-        self.wait()
+        self.wait(12)
         # playing animation
         self.play(
             MoveAlongPath(car, moving_car_path),
@@ -125,7 +125,7 @@ class StationaryPerspective(Scene):
         # adding ball, brace and the number for the ball's position
         self.play(ShowCreation(ball), ShowCreation(brace_to_ball), Write(ball_position))
         self.play(FadeIn(stationary_observer))
-        self.wait()
+        self.wait(5)
         # playing animation
         self.play(MoveAlongPath(ball, moving_ball_path), rate_func=linear, run_time=4)
         self.wait()
@@ -173,7 +173,7 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
         # adding ball and observer
         self.play(ShowCreation(ball))
         self.play(FadeIn(moving_observer))
-        self.wait()
+        self.wait(10)
         # moving camera
         self.camera_frame.add_updater(lambda d: d.move_to(ball.get_center()))
         self.play(Write(time_label), Write(time_number))
@@ -200,7 +200,7 @@ class Confusion(Scene):
         self.add(stationary_observer, moving_observer)
         self.wait()
         self.play(Write(question_marks[0]), Write(question_marks[1]))
-        self.wait()
+        self.wait(2)
 
 
 class ExplanationOfConflict(Scene):
@@ -258,7 +258,7 @@ class ExplanationOfConflict(Scene):
         moving_axis_label.add_updater(lambda d: d.next_to(moving_number_line, direction=RIGHT + 0.5 * DOWN))
         # self.add() now because we have seen the animations before
         self.add(stationary_axis_label, stationary_observer, car, ball, moving_observer, stationary_number_line)
-        self.wait()
+        self.wait(5)
         self.play(ShowCreation(moving_number_line), Write(moving_axis_label))
         self.play(Write(stationary_position_value_label),
                   Write(stationary_position_value),
@@ -266,7 +266,7 @@ class ExplanationOfConflict(Scene):
                   Write(moving_position_value_label))
         self.wait()
         self.play(MoveAlongPath(car, moving_car_path), rate_func=linear, run_time=4)
-        self.wait()
+        self.wait(8)
 
 
 class WhichReferenceFrame(Scene):
@@ -289,4 +289,4 @@ class WhichReferenceFrame(Scene):
 
         relative = MarkupText('Motion is <color col="GREEN">relative</color>')
         self.play(Write(relative))
-        self.wait()
+        self.wait(3)
