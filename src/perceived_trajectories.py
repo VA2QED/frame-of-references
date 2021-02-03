@@ -154,36 +154,27 @@ class StationaryPerspective(GraphScene):
         y_vector = Line(
             np.array([projectile.get_x(), projectile.get_y(), 0]),
             np.array([projectile.get_x(), projectile.get_y()+(4-2*time_dot.get_x())/2, 0])  # see notes for calculations
-        ).add_tip().set_color(BLUE_A)
+        ).add_tip().set_color(BLUE_D)
 
         y_vector.add_updater(lambda d: d.become(Line(
             np.array([projectile.get_x(), projectile.get_y(), 0]),
             np.array([projectile.get_x(), projectile.get_y()+(4-2*time_dot.get_x())/2, 0])  # see notes for calculations
-        ).add_tip().set_color(BLUE_A)))
+        ).add_tip().set_color(BLUE_D)))
 
         x_vector_label = Tex("$v_{x}=$")
         x_vector_value = DecimalNumber(2, num_decimal_places=2, show_ellipsis=False) \
-            .next_to(x_vector_label, direction=RIGHT) \
-            # .align_to(x_vector_label, direction=UP)
-
-        # x_vector_label.add_updater(lambda d: d.next_to(x_vector, direction=DOWN))
-        # x_vector_value.add_updater(lambda d: d.next_to(x_vector_label, direction=RIGHT))
+            .next_to(x_vector_label, direction=RIGHT)
 
         x_label_group = VGroup(x_vector_label, x_vector_value).next_to(time_label, direction=DOWN)\
-            .align_to(time_label, direction=LEFT)
-        # x_label_group.add_updater(lambda d: d.next_to(x_vector, direction=DOWN))
+            .align_to(time_label, direction=LEFT).set_color(RED_A).shift(np.array([0, -0.2, 0]))
 
         y_vector_label = Tex("$v_{y}=$")
         y_vector_value = DecimalNumber(4, num_decimal_places=2, show_ellipsis=False) \
-            .next_to(y_vector_label, direction=RIGHT) \
-            # .align_to(y_vector_label, direction=UP)
+            .next_to(y_vector_label, direction=RIGHT)
 
         y_label_group = VGroup(y_vector_value, y_vector_label).next_to(x_label_group, direction=DOWN) \
-            .align_to(time_label, direction=LEFT)
-        # y_label_group.add_updater(lambda d: d.next_to(y_vector, direction=LEFT))
+            .align_to(time_label, direction=LEFT).set_color(BLUE_D).shift(np.array([0, -0.2, 0]))
 
-        # y_vector_value.add_updater(lambda d: d.next_to(y_vector, direction=LEFT))
-        # y_vector_label.add_updater(lambda d: d.next_to(y_vector_value, direction=0.8*LEFT))
         y_vector_value.add_updater(lambda d: d.set_value(4-2*time_dot.get_x()))
 
         self.play(
@@ -191,19 +182,18 @@ class StationaryPerspective(GraphScene):
             Write(time_label),
             Write(time_number),
             # path is added first to ensure that the projectile will always be on top when moving
-
             ShowCreation(path),
-            FadeIn(projectile),
             ShowCreation(time_dot),
             ShowCreation(time_line),
             ShowCreation(x_vector),
             # ShowCreation(x_vector_label),
             # ShowCreation(x_vector_value),
-            ShowCreation(x_label_group),
             ShowCreation(y_vector),
+            FadeIn(projectile),
             # ShowCreation(y_vector_label),
             # ShowCreation(y_vector_value)
-            ShowCreation(y_label_group)
+            ShowCreation(y_label_group),
+            ShowCreation(x_label_group)
         )
         self.wait()
         self.play(
