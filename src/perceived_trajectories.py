@@ -34,37 +34,36 @@ class DemonstrationOfPerceivedTrajectories(GraphScene):
         self.wait()
 
         # adding stationary observer
-        stationary_observer = Observer(colour=RED)
-        stationary_observer.move_to(self.coords_to_point(4, 5)).scale(0.8).rotate(PI)
-
-        # adding moving observer
-        moving_observer = Observer(colour=BLUE)
-        moving_observer.move_to(self.coords_to_point(-0.5, 0.25)).scale(0.4).rotate(-PI/2)
+        stationary_observer = Observer(colour=RED).move_to(self.coords_to_point(4, 5)).scale(0.8).rotate(PI)
 
         # adding time indication
-        time_label = Tex("$t=$")
-        time_label.move_to(self.coords_to_point(8, 5))
-        time_number = DecimalNumber(0, num_decimal_places=3, include_sign=False, show_ellipsis=False)
-        time_number.next_to(time_label, direction=RIGHT)
+        time_label = Tex("$t=$").move_to(self.coords_to_point(8, 5))
+        time_number = DecimalNumber(0, num_decimal_places=3, include_sign=False, show_ellipsis=False) \
+            .next_to(time_label, direction=RIGHT)
+
         # i'm sorry
         time_line = Line(ORIGIN, 4*RIGHT, stroke_opacity=0)
         time_dot = Dot(ORIGIN, stroke_opacity=0, fill_opacity=0)
         time_number.add_updater(lambda d: d.set_value(time_dot.get_x()))
 
         # adding car and moving to around the origin
-        car = Rectangle(color=WHITE, height=0.5, width=1, fill_opacity=1, fill_color=WHITE)
-        car.move_to(self.coords_to_point(0, -0.25))
+        # Shift the car lower so the observer appears to be in the car.
+        car = Rectangle(color=WHITE, height=0.5, width=1.5, fill_opacity=1, fill_color=WHITE) \
+            .move_to(self.coords_to_point(-0.5, -0.25))
 
-        # the moving observer is next to the car
-        moving_observer.next_to(car, direction=0.5*LEFT + 0.5*UP)
+        # adding moving observer
+        moving_observer = Observer(colour=BLUE).scale(0.4).rotate(-PI/2) \
+            .move_to(self.coords_to_point(-0.75, 0))
 
         # adding projectile
         projectile = Circle(radius=0.25, color=GREEN, fill_opacity=1, fill_color=GREEN)
         projectile.move_to(self.coords_to_point(0, 0))
 
         # adding updater for car moving and moving observer
-        car.add_updater(lambda d: d.move_to(np.array([projectile.get_x(), -2.75, 0])))
-        moving_observer.add_updater(lambda d: d.next_to(car, direction=0.5*LEFT+0.5*UP))
+        # Strange that they follow the projectile...
+        # Anyways, only update the X coordinate to make configuration much easier.
+        car.add_updater(lambda d: d.set_x(projectile.get_x() - 0.25))
+        moving_observer.add_updater(lambda d: d.set_x(car.get_x() - 0.25))
 
         # adding path for the object
         path = self.get_graph(self.trajectory, x_min=0, x_max=0, color=BLUE)
@@ -80,8 +79,8 @@ class DemonstrationOfPerceivedTrajectories(GraphScene):
             Write(time_number),
             # path is added first to ensure that the projectile will always be on top when moving
             ShowCreation(path),
-            ShowCreation(moving_observer),
             ShowCreation(car),
+            ShowCreation(moving_observer),
             ShowCreation(projectile),
             ShowCreation(time_dot),
             ShowCreation(time_line)
