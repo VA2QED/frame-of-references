@@ -211,7 +211,7 @@ class MovingReferenceFrame(GraphScene, MovingCameraScene):
         GraphScene.__init__(
             self,
             y_min=-1,
-            y_max=17,
+            y_max=6,
             y_axis_label="$y$",
             x_min=-1,
             x_max=9,
@@ -227,6 +227,8 @@ class MovingReferenceFrame(GraphScene, MovingCameraScene):
         self.wait()
 
         self.camera_frame.save_state()
+
+        # TODO: consider removing this.
         scaling = Text("the y axis is scaled for illustrative purposes")
         scaling.move_to(3*UP).scale(0.5)
 
@@ -282,12 +284,13 @@ class MovingReferenceFrame(GraphScene, MovingCameraScene):
                   )
 
         # Apparently the updater won't be called unless you animate the object.
-        self.play(self.camera_frame.animate.move_to(np.array([moving_observer.get_x(), moving_observer.get_y(), 0])))
-        self.play(self.camera_frame.animate.scale(0.5))
-        self.remove(scaling)
+        self.play(self.camera_frame.animate.move_to(
+            np.array([moving_observer.get_x(), moving_observer.get_y(), 0]))
+            # Move the camera up a bit so it does not cover useless space.
+            .shift(UP * 2).scale(0.75))
 
         def update_camera(camera):
-            camera.move_to(np.array([moving_observer.get_x(), moving_observer.get_y(), 0]))
+            camera.move_to(np.array([moving_observer.get_x(), moving_observer.get_y() + 2, 0]))
 
         self.camera_frame.add_updater(update_camera)
         self.wait(6)
