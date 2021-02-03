@@ -155,7 +155,7 @@ class MovingPerspectiveHideNumberLine(MovingCameraScene):
         # value to indicate the time elapsed
         time_label = Tex("$t=$")
         time_label.next_to(moving_observer, direction=UP)
-        time_number = DecimalNumber(0, num_decimal_places=3, show_ellipsis=True, unit="s")
+        time_number = DecimalNumber(0, unit="s")
         time_number.next_to(time_label, direction=RIGHT)
         # I'm sorry, I can't think of a better way of keeping track of time other than keeping track of
         # the position of an object move from 0 to 4 on the number line.
