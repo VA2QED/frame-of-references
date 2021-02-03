@@ -120,8 +120,8 @@ class StationaryPerspective(GraphScene):
         # adding time indication
         time_label = Tex("$t=$")
         time_label.move_to(self.coords_to_point(8, 5))
-        time_number = DecimalNumber(0, num_decimal_places=3, include_sign=False, show_ellipsis=False)
-        time_number.next_to(time_label, direction=RIGHT)
+        time_number = DecimalNumber(0, num_decimal_places=2, include_sign=False, show_ellipsis=False) \
+            .next_to(time_label, direction=RIGHT)
         # i'm sorry, best thing I have for a time keeping thing
         time_line = Line(ORIGIN, 4 * RIGHT, stroke_opacity=0)
         time_dot = Dot(ORIGIN, stroke_opacity=0, fill_opacity=0)
@@ -162,21 +162,25 @@ class StationaryPerspective(GraphScene):
         ).add_tip().set_color(BLUE_A)))
 
         x_vector_label = Tex("$v_{x}=$")
-        x_vector_value = DecimalNumber(2, include_sign=True, num_decimal_places=3, show_ellipsis=False, unit="m/s") \
-            .next_to(x_vector_label, direction=RIGHT)
+        x_vector_value = DecimalNumber(2, num_decimal_places=2, show_ellipsis=False) \
+            .next_to(x_vector_label, direction=RIGHT) \
+            # .align_to(x_vector_label, direction=UP)
 
         # x_vector_label.add_updater(lambda d: d.next_to(x_vector, direction=DOWN))
         # x_vector_value.add_updater(lambda d: d.next_to(x_vector_label, direction=RIGHT))
 
-        x_label_group = VGroup(x_vector_label, x_vector_value)
-        x_label_group.add_updater(lambda d: d.next_to(x_vector, direction=DOWN))
+        x_label_group = VGroup(x_vector_label, x_vector_value).next_to(time_label, direction=DOWN)\
+            .align_to(time_label, direction=LEFT)
+        # x_label_group.add_updater(lambda d: d.next_to(x_vector, direction=DOWN))
 
         y_vector_label = Tex("$v_{y}=$")
-        y_vector_value = DecimalNumber(4, include_sign=True, num_decimal_places=3, show_ellipsis=False, units="m/s") \
-            .next_to(y_vector_label, direction=RIGHT)
+        y_vector_value = DecimalNumber(4, num_decimal_places=2, show_ellipsis=False) \
+            .next_to(y_vector_label, direction=RIGHT) \
+            # .align_to(y_vector_label, direction=UP)
 
-        y_label_group = VGroup(y_vector_value, y_vector_label).next_to(y_vector, direction=LEFT)
-        y_label_group.add_updater(lambda d: d.next_to(y_vector, direction=LEFT))
+        y_label_group = VGroup(y_vector_value, y_vector_label).next_to(x_label_group, direction=DOWN) \
+            .align_to(time_label, direction=LEFT)
+        # y_label_group.add_updater(lambda d: d.next_to(y_vector, direction=LEFT))
 
         # y_vector_value.add_updater(lambda d: d.next_to(y_vector, direction=LEFT))
         # y_vector_label.add_updater(lambda d: d.next_to(y_vector_value, direction=0.8*LEFT))
