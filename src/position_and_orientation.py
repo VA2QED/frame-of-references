@@ -34,7 +34,7 @@ class PositionAndOrientation(MovingCameraScene):
         self.show_blue_observer_axes()
         self.highlight_blue_observer_direction()
         self.hide_blue_observer_axis()
-        self.unfocus_on_blue_observer()
+        # self.unfocus_on_blue_observer()
 
         self.focus_on_orange_observer()
         self.show_orange_observer_axes()
@@ -75,7 +75,7 @@ class PositionAndOrientation(MovingCameraScene):
         self.recount_blue_distance()
         self.wait(0.5)
         self.hide_blue_distance_lines_and_grid()
-        self.unfocus_on_blue_observer()
+        # self.unfocus_on_blue_observer()
 
         self.focus_on_orange_observer()
         self.show_orange_grid()
@@ -147,7 +147,7 @@ class PositionAndOrientation(MovingCameraScene):
             .set_x(self.question_position.x) \
             .set_y(self.question_position.y)
 
-        self.play(Write(question))
+        self.play(Write(question, run_time=0.5))
 
     def highlight_question(self):
         self.play(Indicate(self.question))
@@ -181,9 +181,11 @@ class PositionAndOrientation(MovingCameraScene):
         self.play(Restore(self.camera_frame), self.orange_observer.animate.set_opacity(1.0))
 
     def focus_on_orange_observer(self):
-        self.camera_frame.save_state()
+        # Not saving the state as we are saving time by making the perspective transition from blue to orange directly.
+        # self.camera_frame.save_state()
         self.play(self.blue_observer.animate.set_opacity(0),
-                  self.camera_frame.animate.set_x(2.5).scale(0.9))
+                  self.camera_frame.animate.set_x(2.5),
+                  self.orange_observer.animate.set_opacity(1.0))
 
     def show_orange_observer_axes(self):
         self.bring_to_back(self.orange_axes)
@@ -209,11 +211,11 @@ class PositionAndOrientation(MovingCameraScene):
         orange_question_mark = self.orange_question_mark = Text("?") \
             .next_to(self.orange_observer, direction=np.array([-0.5, 0, 0]))
 
-        self.play(FadeInFromPoint(blue_question_mark, blue_question_mark.get_center(), run_time=0.5),
-                  FadeInFromPoint(orange_question_mark, orange_question_mark.get_center(), run_time=0.5))
-        self.play(WiggleOutThenIn(blue_question_mark, n_wiggles=5, rotation_angle=PI / 10),
-                  WiggleOutThenIn(orange_question_mark, n_wiggles=5, rotation_angle=PI / 10))
-        self.play(FadeOut(blue_question_mark, run_time=0.5), FadeOut(orange_question_mark, run_time=0.5))
+        self.play(FadeInFromPoint(blue_question_mark, blue_question_mark.get_center(), run_time=0.2),
+                  FadeInFromPoint(orange_question_mark, orange_question_mark.get_center(), run_time=0.2))
+        self.play(WiggleOutThenIn(blue_question_mark, n_wiggles=3, rotation_angle=PI / 10, run_time=0.5),
+                  WiggleOutThenIn(orange_question_mark, n_wiggles=3, rotation_angle=PI / 10, run_time=0.5))
+        self.play(FadeOut(blue_question_mark, run_time=0.2), FadeOut(orange_question_mark, run_time=0.2))
 
     def highlight_direction_disagreement(self):
         self.bring_to_back(self.blue_axes, self.orange_axes)
@@ -268,7 +270,7 @@ class PositionAndOrientation(MovingCameraScene):
         orange_compass = self.orange_compass = Compass().scale(0.3) \
             .next_to(self.orange_observer, direction=np.array([-0.3, 0.3, 0]))
 
-        self.play(DrawBorderThenFill(blue_compass), DrawBorderThenFill(orange_compass))
+        self.play(DrawBorderThenFill(blue_compass, run_time=0.5), DrawBorderThenFill(orange_compass, run_time=0.5))
         # Add the compasses to the observer groups so they are included in the observer's fade in and out animations.
         self.blue_observer.add(blue_compass)
         self.orange_observer.add(orange_compass)
