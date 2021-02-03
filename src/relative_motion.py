@@ -212,7 +212,7 @@ class ExplanationOfConflict(Scene):
 
         # moving observer
         moving_observer = Observer(colour=BLUE)
-        moving_observer.move_to(np.array([-4 - 0.75, 0.85, 0]))
+        moving_observer.move_to(np.array([-4 - 0.25, 0.85, 0]))
         moving_observer.scale(0.4).rotate(-PI / 2)
 
         # adding ball
@@ -233,12 +233,12 @@ class ExplanationOfConflict(Scene):
 
         # setting up position labels for the two reference frames
         stationary_position_value_label = Tex("$x=$").move_to(np.array([4, 3, 0]))
-        stationary_position_value = DecimalNumber(-4, num_decimal_places=3, include_sign=True, show_ellipsis=True)
+        stationary_position_value = DecimalNumber(-4, num_decimal_places=2)
         stationary_position_value.next_to(stationary_position_value_label, direction=RIGHT)
         stationary_position_value.add_updater(lambda d: d.set_value(ball.get_x()))
 
         moving_position_value_label = Tex("$x'=$").next_to(stationary_position_value_label, direction=DOWN)
-        moving_position_value = DecimalNumber(0.75, num_decimal_places=3, include_sign=True, show_ellipsis=True)
+        moving_position_value = DecimalNumber(0.75, num_decimal_places=2)
         # No need to add an updater for the moving position value because it never changes, but don't tell anyone
         moving_position_value.next_to(moving_position_value_label, direction=RIGHT)
 
@@ -251,8 +251,8 @@ class ExplanationOfConflict(Scene):
 
         # adding updater for ball moving number line and moving observer, notice -0.75 for the x
         # position of moving observer, it follows the ball by a bit behind
-        ball.add_updater(lambda d: d.move_to(np.array([car.get_x(), 0.85, 0])))
-        moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x() - 0.75, 0.85, 0])))
+        ball.add_updater(lambda d: d.move_to(np.array([car.get_x() + 0.25, 0.85, 0])))
+        moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x() - 0.25, 0.85, 0])))
         moving_number_line.add_updater(lambda d: d.move_to(moving_observer))
         moving_axis_label.add_updater(lambda d: d.next_to(moving_number_line, direction=RIGHT + 0.5 * DOWN))
         # self.add() now because we have seen the animations before
