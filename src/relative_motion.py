@@ -28,9 +28,7 @@ class DemonstrationOfRelativeMotion(Scene):
         stationary_observer.scale(0.8).move_to(np.array([0, 2, 0]))
         stationary_observer.rotate(PI)
 
-        moving_observer = Observer(colour=BLUE)
-        moving_observer.scale(0.4).move_to(np.array([-4 - 0.75, 0.85, 0]))
-        moving_observer.rotate(-PI / 2)
+        moving_observer = Observer(colour=BLUE).scale(0.4).move_to(np.array([-4 - 0.25, 0.85, 0])).rotate(-PI / 2)
         # setting up moving car, observer, and ball
         car = Rectangle(height=0.5, width=1, fill_opacity=1, fill_color=WHITE)
         # the car will be moved around and the observer and the ball will follow it in an updater
@@ -40,7 +38,7 @@ class DemonstrationOfRelativeMotion(Scene):
         # value to indicate the position of the car
         position_label = Tex("$x=$")
         position_label.move_to(np.array([4, 3, 0]))
-        position_number = DecimalNumber(-4, include_sign=True, num_decimal_places=3, show_ellipsis=True)
+        position_number = DecimalNumber(-4, num_decimal_places=2)
         position_number.next_to(position_label, direction=RIGHT)
         position_number.add_updater(lambda d: d.set_value(car.get_x()))
 
@@ -57,12 +55,13 @@ class DemonstrationOfRelativeMotion(Scene):
 
         # adding ball
         ball = Circle(radius=0.2, color=GREEN, fill_opacity=1, fill_color=GREEN)
-        ball.move_to(np.array([-4, 0.85, 0]))
+        ball.move_to(np.array([-4, 1.1, 0]))
 
         # adding updater for ball and moving observer, notice -0.75 for the x position of moving observer, it follows
-        # the ball by a bit behind
-        ball.add_updater(lambda d: d.move_to(np.array([car.get_x(), 0.85, 0])))
-        moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x() - 0.75, 0.85, 0])))
+        # the ball by a bit behind and no, the observer should not float in space in chase of the ball, it should be in
+        # the car.
+        ball.add_updater(lambda d: d.move_to(np.array([car.get_x() + 0.25, 0.85, 0])))
+        moving_observer.add_updater(lambda d: d.move_to(np.array([car.get_x() - 0.25, 0.85, 0])))
 
         # Adding number line
         self.play(ShowCreation(number_line))
