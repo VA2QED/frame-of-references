@@ -16,7 +16,7 @@ class ThanksForWatching(Scene):
             Text("Narration and editing").move_to(UP+2*RIGHT)
         ]
         jerry = [
-            Text("Bokuan Li: ").next_to(ashmita[0], direction=DOWN),
+            Text("Jerry Li: ").next_to(ashmita[0], direction=DOWN),
             Text("Animations and Script").next_to(ashmita[1], direction=DOWN)
         ]
         matthew = [
