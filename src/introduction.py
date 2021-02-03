@@ -10,10 +10,18 @@ class SelfIntroduction(Scene):
             .set_color(BLUE) \
             .next_to(title, direction=DOWN)
 
+        quote = Text("""
+        Whether a man is on the earth, or the sun, or some other star, 
+        it will always seem to him that the position that he occupies 
+        is the motionless centre, and that all other things are in motion.
+        - Cardinal Nicholas de Cusa""").set_color(PURPLE, GREEN).scale(0.6)
         self.play(Write(title))
         self.wait(2)
         self.play(Write(names))
         self.wait(2)
+        self.clear()
+        self.play(Write(quote), run_time=4)
+        self.wait()
 
 
 # TODO: make the bold text coloured
@@ -23,19 +31,20 @@ class ReferenceFrameDefWords(Scene):
                         Definition: A reference frame is composed of an \\\\ 
                         \\textbf{origin} and methods of describing the\\\\ 
                         \\textbf{position} and \\textbf{orientation}
-                        of an object \\textbf{relative} to an\\\\ 
-                        \\textbf{observer}
+                        of an object at a point in time \\\\
+                        \\textbf{relative} to that \\textbf{origin}.
                         """).set_color_by_gradient(BLUE, GREEN)
+        '''  
         warning = Tex("""
                     Please note that an observer doesn't have to be \\\\
                     at the \\textbf{origin} of the graph.\\\\
                     However, let us assume that the \\\\
                     observer is at the origin for ease.
                       """).set_color_by_gradient(RED, YELLOW)  # set_color_by_gradient() is so pretty :)
+        '''
         self.play(Write(def_of_fr))
         self.wait(5)
-        self.play(ReplacementTransform(def_of_fr, warning))
-        self.wait(5)
+        # self.play(ReplacementTransform(def_of_fr, warning))
 
 
 class ReferenceFrameExample(Scene):

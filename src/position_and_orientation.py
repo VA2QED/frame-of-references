@@ -5,6 +5,16 @@ from objects.compass import Compass
 from objects.pathlines import PathLines
 from objects.water_fountain import WaterFountain
 
+from manim import *
+
+
+class Introduction(Scene):
+    def construct(self):
+        title = Text("Position and Orientation").set_color_by_gradient(BLUE, ORANGE)
+        title.scale(1.5)
+        self.play(Write(title))
+        self.wait()
+
 
 class PositionAndOrientation(MovingCameraScene):
     def __init__(self, camera_class=MovingCamera, **kwargs):
