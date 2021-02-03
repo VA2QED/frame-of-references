@@ -112,7 +112,7 @@ class StationaryPerspective(Scene):
         brace_to_ball.add_updater(lambda d: d.become(Brace(Line(np.array([ball.get_x(), -1, 0]), ORIGIN))))
 
         # setting up a number that tracks the position
-        ball_position = DecimalNumber(-4, num_decimal_places=3, include_sign=True, show_ellipsis=True)
+        ball_position = DecimalNumber(-4, num_decimal_places=2)
         ball_position.next_to(brace_to_ball, direction=DOWN)
         ball_position.add_updater(lambda d: d.set_value(ball.get_x()))
         ball_position.add_updater(lambda d: d.next_to(brace_to_ball, direction=DOWN))
