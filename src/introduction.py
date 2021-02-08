@@ -6,7 +6,7 @@ class SelfIntroduction(Scene):
         title = Tex("Frames of References") \
             .scale(3) \
             .set_color_by_gradient(GREEN, YELLOW)
-        names = Tex("Ashmita Bhattacharyya, Bokuan Li, Jixin Chen") \
+        names = Tex("Ashmita Bhattacharyya, Jerry Li, Jixin Chen") \
             .set_color(BLUE) \
             .next_to(title, direction=DOWN)
 
