@@ -13,7 +13,7 @@ class ThanksForWatching(Scene):
 
         ashmita = [
             Text("Ashmita Bhattacharyya: ").move_to(UP+2*LEFT),
-            Text("Narration and editing").move_to(UP+2*RIGHT)
+            Text("Narration and Editing").move_to(UP+2*RIGHT)
         ]
         jerry = [
             Text("Jerry Li: ").next_to(ashmita[0], direction=DOWN),
